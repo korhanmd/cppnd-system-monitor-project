@@ -70,8 +70,8 @@ vector<int> LinuxParser::Pids() {
 float LinuxParser::MemoryUtilization() {
   string line;
   string key, value, unit;
-  float mem_total = 0.0;
-  float mem_free = 0.0;
+  float mem_total = 1.0;
+  float mem_free = 1.0;
 
   std::ifstream filestream(kProcDirectory + kMeminfoFilename);
 
