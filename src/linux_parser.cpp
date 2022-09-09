@@ -106,8 +106,17 @@ long LinuxParser::UpTime() {
   return uptime_sys;
 }
 
-// TODO: Read and return the number of jiffies for the system
-long LinuxParser::Jiffies() { return 0; }
+// Read and return the number of jiffies for the system
+long LinuxParser::Jiffies() {
+  vector<string> values = CpuUtilization();
+  long jiffies = 0;
+
+  for (string value : values) {
+    jiffies += stol(value);
+  }
+
+  return jiffies;
+}
 
 // TODO: Read and return the number of active jiffies for a PID
 // REMOVE: [[maybe_unused]] once you define the function
