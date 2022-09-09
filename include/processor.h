@@ -5,8 +5,8 @@ class Processor {
  public:
   float Utilization();
 
-  // TODO: Declare any necessary private members
  private:
+  float prev_amounts[10] {0,0,0,0,0,0,0,0,0,0};
 };
 
 #endif
