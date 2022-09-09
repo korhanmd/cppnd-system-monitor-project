@@ -6,7 +6,8 @@ class Processor {
   float Utilization();
 
  private:
-  float prev_amounts[10] {0,0,0,0,0,0,0,0,0,0};
+  float prev_total {0.0};
+  float prev_idle {0.0};
 };
 
 #endif
