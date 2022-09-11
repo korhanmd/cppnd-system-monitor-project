@@ -2,7 +2,6 @@
 #include <unistd.h>
 #include <string>
 #include <vector>
-#include <iomanip>
 
 #include "linux_parser.h"
 
@@ -243,12 +242,7 @@ string LinuxParser::Ram(int pid) {
       std::istringstream linestream(line);
       linestream >> key >> value;
 
-      if (key == "VmSize:") {
-        std::stringstream ram;
-        ram << std::fixed << std::setprecision(2) << stof(value)/1024;
-        
-        return ram.str();
-      }
+      if (key == "VmSize:") return to_string(stol(value)/1024);
     }
     
   }
