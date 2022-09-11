@@ -26,6 +26,10 @@ vector<Process>& System::Processes() {
         processes_.push_back(Process(pids[i]));
     }
 
+    // Sort the vector of processes in descending order according to CPU utilization
+    sort(processes_.begin(), processes_.end());
+    reverse(processes_.begin(), processes_.end());
+
     return processes_;
 }
 
