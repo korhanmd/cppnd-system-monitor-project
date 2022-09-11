@@ -11,6 +11,14 @@ using std::string;
 using std::to_string;
 using std::vector;
 
+// Process contructor
+Process::Process(int pid) : pid_{pid} {
+    long total_time = LinuxParser::ActiveJiffies(pid);
+    long uptime = LinuxParser::UpTime(pid);
+
+    cpu_ = ((float(total_time) / sysconf(_SC_CLK_TCK)) / float(uptime));
+}
+
 // Return this process's ID
 int Process::Pid() { return pid_; }
 

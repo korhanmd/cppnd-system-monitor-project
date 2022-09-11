@@ -8,7 +8,7 @@ It contains relevant attributes as shown below
 */
 class Process {
  public:
-  Process(int pid) : pid_{pid} {}
+  Process(int pid);
   int Pid();
   std::string User();
   std::string Command();
@@ -19,6 +19,7 @@ class Process {
 
  private:
   int pid_;
+  float cpu_;
 };
 
 #endif
