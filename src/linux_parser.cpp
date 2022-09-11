@@ -306,7 +306,7 @@ long LinuxParser::UpTime(int pid) {
 
     long start_time = stol(value);
     long uptime_proc = uptime_sys - (float(start_time) / sysconf(_SC_CLK_TCK));
-    return uptime_proc;
+    return uptime_proc ? uptime_proc : 1;
   }
 
   return 0;
